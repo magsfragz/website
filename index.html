@@ -417,7 +417,7 @@
 
         let music = new Audio('https://cdn.discordapp.com/attachments/1045425410235699305/1070172621024546816/Uzi_Brah_Watch_This_feat._ARIZONATEARS.mp3')
 
-        source.setAttribute('src', 'https://cdn.discordapp.com/attachments/1053790969159503946/1066474565645115472/VALORANT_replay_2023.01.19-00.59.mp4');
+        source.setAttribute('src', '');
         video.appendChild(source);
 
         video.pause();
@@ -434,7 +434,7 @@
             y.style.display = "none";
 
             tsParticles.load("tsparticles", {
-                fpsLimit: 120,
+                fpsLimit: 240,
                 interactivity: {
                     events: {
                         onClick: {
@@ -449,10 +449,10 @@
                     },
                     modes: {
                         bubble: {
-                            distance: 400,
+                            distance: 300,
                             duration: 2,
                             opacity: 1.2,
-                            size: 50
+                            size: 65
                         },
                         push: {
                             quantity: 10
