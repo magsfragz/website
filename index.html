@@ -1,596 +1,290 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChairsRus | Welcome</title>
-    <style>
-        /*
-        @font-face {
-            font-family: 'main';
-            src: url('/assets/fonts/gc.ttf');
-        }
-      */
-
-        @font-face {
-            font-family: 'main';
-            src: url('/assets/fonts/tahoma.ttf');
-        }
-
-        ::-webkit-scrollbar {
-            width: 0px;
-            /* Remove scrollbar space */
-            background: transparent;
-            /* Optional: just make scrollbar invisible */
-        }
-
-        @-moz-document url-prefix() {
-            /* Disable scrollbar Firefox */
-            html {
-                scrollbar-width: none;
-            }
-        }
-
-        body {
-            margin: 0;
-            /* remove default margin */
-            scrollbar-width: none;
-            /* Also needed to disable scrollbar Firefox */
-            -ms-overflow-style: none;
-            /* Disable scrollbar IE 10+ */
-            overflow-y: scroll;
-        }
-
-        body::-webkit-scrollbar {
-            width: 0px;
-            background: transparent;
-            /* Disable scrollbar Chrome/Safari/Webkit */
-        }
-
-        html {
-            background-color: #111111;
-        }
-
-        @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900);
-        body {
-            overflow: hidden;
-            height: 100vh;
-            width: 100vw;
-        }
-
-        #overlay {
-            position: fixed;
-            display: none;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 2;
-            cursor: pointer;
-        }
-
-        #text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            font-size: 30px;
-            color: white;
-            transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-        }
-
-        .slidecontainer {
-            width: 100%;
-        }
-
-        .slider {
-            -webkit-appearance: none;
-            background: #ffff;
-            outline: none;
-            width: 200px;
-            -webkit-transition: .2s;
-            transition: opacity .2s;
-        }
-
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 15px;
-            height: 15px;
-            background: #000;
-            cursor: pointer;
-        }
-
-        .slider::-moz-range-thumb {
-            width: 25px;
-            height: 25px;
-            background: #4CAF50;
-            cursor: pointer;
-        }
-
-        .row1 {
-            display: flex;
-            position: fixed;
-            top: 48%;
-            left: 50%;
-            /* bring your own prefixes */
-            transform: translate(-50%, -50%);
-        }
-
-        .column1 {
-            padding: 10px;
-        }
-
-        .coolimage {
-            -webkit-transition: -webkit-transform .8s ease-in-out;
-            transition: transform .8s ease-in-out;
-        }
-
-        img:hover {
-            -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial;
-            font-size: 17px;
-            background-color: #000;
-            color: white;
-        }
-
-        .myVideo {
-            object-fit: cover;
-            width: 100vw;
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-        }
-
-        .myVideo::before {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            content: '';
-            /* Whatever IG */
-            background-color: rgba(0, 0, 0, 1);
-        }
-
-        .content {
-            display: inline-block !important;
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            min-width: 100%;
-            min-height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            color: #f1f1f1;
-            padding: 20px;
-        }
-
-        #myBtn {
-            width: 200px;
-            font-size: 18px;
-            padding: 10px;
-            border: none;
-            background: #000;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        #myBtn:hover {
-            background: #ddd;
-            color: black;
-        }
-
-        button {
-            background-color: #ffffff;
-            /* Green */
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-        }
-
-        .button1 {
-            background-color: #000000;
-            /* Green */
-            border: none;
-            color: white !important;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-        }
-
-        .vl {
-            border-left: 6px solid white;
-        }
-
-        #motto {
-            color: white;
-            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-        }
-
-        .pfp {
-            border-radius: 50%;
-        }
-
-        #tsparticles {
-            width: 100%;
-            height: 100%;
-        }
-
-        .captcha a {
-            position: relative;
-            display: inline-block;
-            padding: 10px 20px;
-            color: #ffffff;
-            font-size: 16px;
-            text-decoration: none;
-            text-transform: uppercase;
-            overflow: hidden;
-            transition: .5s;
-            margin-top: 40px;
-            letter-spacing: 4px
-        }
-
-        .captcha a:hover {
-            background: #020202;
-            color: rgb(255, 250, 250);
-            border-radius: 5px;
-            box-shadow: 0 0 5px #000000, 0 0 25px #fffffe, 0 0 50px #000000, 0 0 100px #fffbfb;
-        }
-
-        .captcha a span {
-            position: absolute;
-            display: block;
-        }
-
-        .captcha a span:nth-child(1) {
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #000000);
-            animation: btn-anim1 1s linear infinite;
-        }
-
-        @keyframes btn-anim1 {
-            0% {
-                left: -100%;
-            }
-            50%,
-            100% {
-                left: 100%;
-            }
-        }
-
-        .captcha a span:nth-child(2) {
-            top: -100%;
-            right: 0;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(180deg, transparent, #000000);
-            animation: btn-anim2 1s linear infinite;
-            animation-delay: .25s
-        }
-
-        @keyframes btn-anim2 {
-            0% {
-                top: -100%;
-            }
-            50%,
-            100% {
-                top: 100%;
-            }
-        }
-
-        .captcha a span:nth-child(3) {
-            bottom: 0;
-            right: -100%;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(270deg, transparent, #030303);
-            animation: btn-anim3 1s linear infinite;
-            animation-delay: .5s
-        }
-
-        @keyframes btn-anim3 {
-            0% {
-                right: -100%;
-            }
-            50%,
-            100% {
-                right: 100%;
-            }
-        }
-
-        .captcha a span:nth-child(4) {
-            bottom: -100%;
-            left: 0;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(360deg, transparent, #000000);
-            animation: btn-anim4 1s linear infinite;
-            animation-delay: .75s
-        }
-
-        @keyframes btn-anim4 {
-            0% {
-                bottom: -100%;
-            }
-            50%,
-            100% {
-                bottom: 100%;
-            }
-        }
-    </style>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<link rel="shortcut icon" href="https://cdn.discordapp.com/attachments/818001988616192001/1074492301717557338/Annotation_2023-01-01_174335-removebg-preview.png" type="image/x-icon">
+<meta name="description" content="Public high quality internal game cheats. We currently offer Fortnite, RainbowSix, Valorant & Apex-Legends">
+<title>ChairsRus - Game cheats</title>
+<link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+<link rel="stylesheet" href="assets/FontAwesome/css/font-awesome.css">
+<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+<link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+<link rel="stylesheet" href="assets/dropdown/css/style.css">
+<link rel="stylesheet" href="assets/socicon/css/styles.css">
+<link rel="stylesheet" href="assets/theme/css/style.css">
+<link rel="preload" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i&display=swap"></noscript>
+<link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+<script src="https://cdn.sellix.io/static/js/embed.js"></script>
 </head>
-
 <body>
 
+<style>
+::-webkit-scrollbar{
+width: 13px;
+height: 13px;
+}
+::-webkit-scrollbar-thumb{
+background: #4f43fa;
+}
+::-webkit-scrollbar-thumb:hover{
+background: #4f43fa;
+}
+::-webkit-scrollbar-track{
+background: #212428;
+border-radius: 0px;
+box-shadow: inset 0px 0px 0px 0px #F0F0F0;
+}
+</style>
 
+<section data-bs-version="5.1" class="menu menu1 cid-sQknKIJ5xL" once="menu" id="menu01-0">
+<nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+<div class="container">
+<div class="navbar-brand">
+<span class="navbar-logo">
+<a href="index.html#top">
+<img src="https://cdn.discordapp.com/attachments/818001988616192001/1074492301717557338/Annotation_2023-01-01_174335-removebg-preview.png" alt="Logo" style="height: 3.1rem;">
+</a>
+</span>
+</div>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+<div class="hamburger">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-warning text-primary display-4" href="index.html#content04-b" data-bs-auto-close="outside" aria-expanded="false">About</a></li>
+<li class="nav-item"><a class="nav-link link text-warning text-primary display-4" href="https://chairsrus.sellpass.io/" target="_blank">Store</a><li class="nav-item"><a class="nav-link link text-warning text-primary display-4" href="https://discord.gg/xrw59nuxwN" target="_blank">Status</a></li><li class="nav-item"><a class="nav-link link text-warning text-primary display-4" href="index.html#content04-2t">Contacts</a></li></ul>
+<div class="icons-menu">
+<a class="https://cdn.discordapp.com/attachments/818001988616192001/1074499291965558864/download-removebg-preview.png" href="https://discord.gg/xrw59nuxwN" target="_blank">
+<span class="p-2 mbr-iconfont socicon-discord socicon"></span>
+</a>
 
-    <div id="captcha" class="captcha">
-        <div class="content">
-            <div class="row1">
-                <div class="column1">
-                    <a style="font-size:25px" onclick="enterSite();">
-				  <span></span>
-				  <span></span>
-				  <span></span>
-				  <span></span>
-				click to enter
-				</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="mainSite">
-        <video autoplay loop class="myVideo" id="myVideo" playsinline>
-          Your browser does not support HTML5 video.
-        </video>
-
-        <div class="content">
-            <div class="row1">
-                <div class="column1">
-
-                    <center>
-                        <h1 class="subtitle is-2" style="font-family: 'main';color: #ffffff;white-space: nowrap;">ChairsRus</h1>
-                        <span class="typewrite" data-period="2000" data-type='["Providing quality software since 2019", "If ya cant beat em, join em", "Once a paster always a paster - ! MagZ#4753"]'></span></p>
-                        <br><br>
-                        <div class="columns">
-                            <div class="column">
-                                <a href="https://chairsrus.sellpass.io/" style="color: #ffffff !important;">Buy</a>
-                            </div>
-                            <div class="column">
-                                <a href="https://www.elitepvpers.com/" style="color: #ffffff !important;" target="_blank">ePvP</a>
-                            </div>
-                            <div class="column">
-                                <a href="https://discord.gg/VBwCz5QKUk" style="color: #ffffff !important;" target="_blank">Discord</a>
-                            </div>
-                        </div>
-                    </center>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.39.0/tsparticles.min.js"></script>
-    <script>
-        var x = document.getElementById("mainSite");
-        var y = document.getElementById("captcha");
-        var particles = document.getElementById("captcha");
-
-        var source = document.createElement('source');
-
-        /*
-        //"follow", "bungo", "lalala", "orb"
-        //["joker", "slingshot", "delirium", "witch", "mistake"]
-        var songs = ["skrt", "gangster", "mistake", "delirium"];
-        const songIndex = Math.floor(Math.random() * songs.length);
-        const song = songs[songIndex];*/
-
-        x.style.display = "none";
-
-        var video = document.getElementById("myVideo");
-        var btn = document.getElementById("myBtn");
-
-        let music = new Audio('https://cdn.discordapp.com/attachments/1045425410235699305/1070172621024546816/Uzi_Brah_Watch_This_feat._ARIZONATEARS.mp3')
-
-        source.setAttribute('src', '');
-        video.appendChild(source);
-
-        video.pause();
-        video.volume = 0;
-
-
-        function enterSite() {
-            music.volume = 0.5;
-            music.speed = 0.5;
-            music.loop = true;
-            music.play();
-            video.play();
-            x.style.display = "block";
-            y.style.display = "none";
-
-            tsParticles.load("tsparticles", {
-                fpsLimit: 240,
-                interactivity: {
-                    events: {
-                        onClick: {
-                            enable: false,
-                            mode: "push"
-                        },
-                        onHover: {
-                            enable: true,
-                            mode: "repulse"
-                        },
-                        resize: true
-                    },
-                    modes: {
-                        bubble: {
-                            distance: 300,
-                            duration: 2,
-                            opacity: 1.2,
-                            size: 65
-                        },
-                        push: {
-                            quantity: 10
-                        },
-                        repulse: {
-                            distance: 200,
-                            duration: 0.4
-                        }
-                    }
-                },
-               particles: {
-            number: {
-                value: 1000,
-                density: {
-                    enable: true,
-                    value_area: 800
-                }
-            },
-                    links: {
-                        color: "#ffffff",
-                        distance: 150,
-                        enable: true,
-                        opacity: 0.5,
-                        width: 1
-                    },
-                    collisions: {
-                        enable: true
-                    },
-                    move: {
-                        direction: "none",
-                        enable: true,
-                        outMode: "bounce",
-                        random: false,
-                        speed: 3,
-                        straight: false
-                    },
-                    number: {
-                        density: {
-                            enable: true,
-                            value_area: 800
-                        },
-                        value: 25
-                    },
-                    opacity: {
-                        value: 0.5
-                    },
-                    shape: {
-                        type: "circle"
-                    },
-                    size: {
-                        random: true,
-                        value: 5
-                    }
-                },
-                detectRetina: true
-            });
-
-        }
-
-        function myFunction() {
-            if (video.paused) {
-                video.play();
-                btn.innerHTML = "Pause";
-            } else {
-                video.pause();
-                btn.innerHTML = "Play";
-            }
-        }
-
-        function updateSlider(slideAmount) {
-            var sliderDiv = document.getElementById("sliderAmount");
-            video.volume = (slideAmount / 100);
-            console.log("New volume: " + video.volume);
-        }
-
-        function on() {
-            document.getElementById("overlay").style.display = "block";
-        }
-
-        var TxtType = function(el, toRotate, period) {
-            this.toRotate = toRotate;
-            this.el = el;
-            this.loopNum = 0;
-            this.period = parseInt(period, 10) || 2000;
-            this.txt = '';
-            this.tick();
-            this.isDeleting = false;
-        };
-
-        TxtType.prototype.tick = function() {
-            var i = this.loopNum % this.toRotate.length;
-            var fullTxt = this.toRotate[i];
-
-            if (this.isDeleting) {
-                this.txt = fullTxt.substring(0, this.txt.length - 1);
-            } else {
-                this.txt = fullTxt.substring(0, this.txt.length + 1);
-            }
-
-            this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
-
-            var that = this;
-            var delta = 200 - Math.random() * 100;
-
-            if (this.isDeleting) {
-                delta /= 2;
-            }
-
-            if (!this.isDeleting && this.txt === fullTxt) {
-                delta = this.period;
-                this.isDeleting = true;
-            } else if (this.isDeleting && this.txt === '') {
-                this.isDeleting = false;
-                this.loopNum++;
-                delta = 500;
-            }
-
-            setTimeout(function() {
-                that.tick();
-            }, delta);
-        };
-
-        window.onload = function() {
-            var elements = document.getElementsByClassName('typewrite');
-            for (var i = 0; i < elements.length; i++) {
-                var toRotate = elements[i].getAttribute('data-type');
-                var period = elements[i].getAttribute('data-period');
-                if (toRotate) {
-                    new TxtType(elements[i], JSON.parse(toRotate), period);
-                }
-            }
-            // INJECT CSS
-            var css = document.createElement("style");
-            css.type = "text/css";
-            css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
-            document.body.appendChild(css);
-        };
-    </script>
+</div>
+</div>
+</div>
+</nav>
+</section>
+<section data-bs-version="5.1" class="header14 cid-sYRftePcLs" id="header14-0">
+<div class="container">
+<div class="row">
+<div class="col-12 col-lg mt-5 py-5 mt-lg-0 pt-lg-0">
+<div class="text-wrapper">
+<h1 class="mbr-section-title mbr-fonts-style mb-4 display-2"><strong style="color:#4f43fa;">ChairsRus</strong><strong></strong></h1>
+<p class="mbr-text mbr-fonts-style display-7">
+ChairsRus was started 2021 and is well known for his Undetected game cheats. We are happy to say that we are one of the safes public cheats providers!</p>
+<div class="mbr-section-btn mt-4"><a class="btn btn-secondary display-4" href="https://chairsrus.sellpass.io/" target="_blank">Buy here</a></div>
+</div>
+</div>
+<div class="col-12 col-lg-4">
+<div class="image-wrapper">
+<img src="https://cdn.discordapp.com/attachments/818001988616192001/1074492978632069192/fortnite-dance-fortnite.gif" alt="">
+</div>
+</div>
+</div>
+</div>
+</section>
+<section data-bs-version="5.1" class="features2 cid-sQknOmvbyo" id="features02-2">
+<div class="container">
+<div class="row">
+</div>
+<div class="row">
+<div class="card col-12 col-md-6 col-lg-4 md-pb">
+<div class="card-wrapper">
+<div class="card-box align-left">
+<span class="mbr-iconfont-big mobi-mbri-cash mobi-mbri"></span>
+<div class="iconfont-wrapper">
+<span class="mbr-iconfont mobi-mbri-database mobi-mbri"></span>
+</div>
+<h5 class="card-title mbr-fonts-style display-7"><strong>AFFORDABLE PRODUCTS</strong></h5>
+<p class="card-text mbr-fonts-style display-4">We offer you the best value for money with our cheats.<br></p>
+</div>
+</div>
+</div>
+<div class="card col-12 col-md-6 col-lg-4 md-pb">
+<div class="card-wrapper">
+<div class="card-box align-left">
+<span class="mbr-iconfont-big mobi-mbri-delivery mobi-mbri"></span>
+<div class="iconfont-wrapper">
+<span class="mbr-iconfont mobi-mbri-shopping-cart mobi-mbri"></span>
+</div>
+<h5 class="card-title mbr-fonts-style display-7"><strong>INSTANT DELIVERY</strong></h5>
+<p class="card-text mbr-fonts-style display-4">Since this is a digital product, delivery is instant!</p>
+</div>
+</div>
+</div>
+<div class="card col-12 col-md-6 col-lg-4 md-pb">
+<div class="card-wrapper">
+<div class="card-box align-left">
+<span class="mbr-iconfont-big mobi-mbri-info mobi-mbri"></span>
+<div class="iconfont-wrapper">
+<span class="mbr-iconfont mobi-mbri-smile-face mobi-mbri"></span>
+</div>
+<h5 class="card-title mbr-fonts-style display-7"><strong>FAST SUPPORT</strong></h5>
+<p class="card-text mbr-fonts-style display-4">We have a well trained support team who are happy to help.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section data-bs-version="5.1" class="article4 cid-sQko9BkaNl" id="content04-b">
+<div class="container">
+<div class="row align-left justify-content-center align-content-around">
+<div class="col-12 col-lg col-md-12 my-auto">
+<div class="text-wrapper md-pb">
+<h1 class="mbr-section-title mbr-fonts-style mb-4 align-left display-1"><strong style="color:#4f43fa;">About</strong> <strong>us.</strong></h1>
+<p class="mbr-text mbr-fonts-style align-left display-7">
+ChairsRus was started 2021 and is well known for his Undetected game cheats. We are happy to say that we are one of the safes public cheats provider! We are team of one software developer, one head admin and a small support team of long time cheat users we can trust.</p>
+</div>
+</div>
+<div class="col-12 col-md-12 my-auto col-lg-4 image-wrapper">
+<img class="w-100" src="https://cdn.discordapp.com/attachments/818001988616192001/1074492978632069192/fortnite-dance-fortnite.gif" alt="">
+</div>
+</div>
+</div>
+</section>
+<section data-bs-version="5.1" class="features5 cid-sZreyRIZ90" id="clients02-29">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-12 title-col pb-5">
+<h2 class="main-title align-center mbr-black mb-4 mbr-fonts-style display-2"><strong style="color:#4f43fa;">Notable</strong> <strong>clients.</strong><br></h2>
+</div>
+<div class="col-12 col-md-6 col-lg-3">
+<div class="card-wrapper">
+<div class="card-box align-center">
+<img src="https://cdn.discordapp.com/attachments/818001988616192001/1074496951220973609/99f4d4c58777e8b6b43eaaf778bd0c5a.png" alt="">
+<h4 class="card-title align-left mbr-black mb-2 mbr-fonts-style display-7"><strong>LegionFusion</strong></h4>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-lg-3">
+<div class="card-wrapper">
+<div class="card-box align-center">
+<img src="https://cdn.discordapp.com/attachments/818001988616192001/1074496951443267675/0564ad01746b3bc322066d3e62836cfc.png" alt="">
+<h4 class="card-title align-left mbr-black mb-2 mbr-fonts-style display-7"><strong>đåx</strong></h4>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-lg-3">
+<div class="card-wrapper">
+<div class="card-box align-center">
+<img src="https://cdn.discordapp.com/attachments/818001988616192001/1074496952072417381/0d6024b580221ceb3a9b81450a3a3fd5.png" alt="">
+<h4 class="card-title align-left mbr-black mb-2 mbr-fonts-style display-7"><strong>Balakae</strong></h4>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-lg-3">
+<div class="card-wrapper">
+<div class="card-box align-center">
+<img src="https://cdn.discordapp.com/attachments/818001988616192001/1074496951778803843/a_e6589d57fc86161dbce929d44d92dfb9.gif" alt="">
+<h4 class="card-title align-left mbr-black mb-2 mbr-fonts-style display-7"><strong>Kush</strong></h4>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section data-bs-version="5.1" class="article4 cid-sZDsPTdePM" id="content04-2t">
+<div class="container">
+<div class="row align-left justify-content-center align-content-around">
+<div class="col-12 col-lg col-md-12 my-auto">
+<div class="text-wrapper md-pb">
+<h1 class="mbr-section-title mbr-fonts-style mb-4 align-left display-1"><strong style="color:#4f43fa;">Contact</strong> <strong>us.</strong></h1>
+<p class="mbr-text mbr-fonts-style align-left display-7">
+If you have problems or anything else contact us on Discord!</p>
+<div class="mbr-section-btn mt-4"><a class="btn btn-secondary display-4" href="https://discord.gg/xrw59nuxwN" target="_blank">Join Discord</a></div>
+</div>
+</div>
+<div class="col-12 col-md-12 my-auto col-lg-4 image-wrapper">
+<img class="w-100" src="https://cdn.discordapp.com/attachments/818001988616192001/1074492978262978680/contact-us-removebg-preview-500x500.png" alt="">
+</div>
+</div>
+</div>
+</section>
+<section data-bs-version="5.1" class="list1 cid-sQkpQHaqGt" id="list01-d">
+<div class="container">
+<div id="bootstrap-accordion_6" class="panel-group accordionStyles accordion" role="tablist" aria-multiselectable="true">
+<div class="row justify-content-center">
+<div class="mbr-section-head col-12 align-center mb-5">
+</div>
+<div class="col-12 col-md-12 col-lg-6 md-pb">
+<h4 class="mbr-section-subtitle align-left mb-3 mbr-fonts-style display-5"><strong>
+More Info</strong></h4>
+<div class="card mb-1">
+<div class="card-header" role="tab" id="headingOne">
+<a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse1_6" aria-expanded="false" aria-controls="collapse1">
+<h6 class="panel-title-edit mbr-fonts-style mb-0 display-7"><strong>How safe is it to play with cheats?</strong></h6>
+</a>
+</div>
+<div id="collapse1_6" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_6">
+<div class="panel-body">
+<p class="mbr-fonts-style panel-text display-4">As a rule, it always depends on your playing style. If you play extremely obviously with aimbot you will of course be banned sooner or later because of a report. Just find the right middle for yourself or ask other cheat users from our discord server.</p>
+</div>
+</div>
+</div>
+<div class="card mb-1">
+<div class="card-header" role="tab" id="headingOne">
+<a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse2_6" aria-expanded="false" aria-controls="collapse2">
+<h6 class="panel-title-edit mbr-fonts-style mb-0 display-7"><strong>Is it complicated to use the cheats?</strong></h6>
+</a>
+</div>
+<div id="collapse2_6" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_6">
+<div class="panel-body">
+<p class="mbr-fonts-style panel-text display-4">
+No, on the contrary, it is made in such a way that everyone can do it, if you have problems, just ask our support.</p>
+</div>
+</div>
+</div>
+<div class="card mb-1">
+<div class="card-header" role="tab" id="headingOne">
+<a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse3_6" aria-expanded="false" aria-controls="collapse3">
+<h6 class="panel-title-edit mbr-fonts-style mb-0 display-7"><strong>Can I participate in tournaments?</strong></h6>
+</a>
+</div>
+<div id="collapse3_6" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_6">
+<div class="panel-body">
+<p class="mbr-fonts-style panel-text display-4">
+Yes you can, but you have to keep in mind that these are always well monitored, so be careful here!</p>
+</div>
+ </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section data-bs-version="5.1" class="footer1 cid-sYT5oUpwsp" once="footer" id="footer01-5">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-md-12 col-lg-6 my-auto px-4 align-left">
+<p class="mbr-text text-grey mb-0 mbr-fonts-style display-7">
+© Copyright 2023, ChairsRus - All Rights Reserved</p>
+</div>
+<div class="col-md-12 col-lg-6 px-4 align-right">
+<div class="social-list">
+<div class="soc-item">
+<a href="https://discord.gg/xrw59nuxwN" target="_blank">
+<span class="mbr-iconfont mbr-iconfont-social socicon-discord socicon"></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/smoothscroll/smooth-scroll.js"></script>
+<script src="assets/ytplayer/index.js"></script>
+<script src="assets/dropdown/js/navbar-dropdown.js"></script>
+<script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>
+<script src="assets/theme/js/script.js"></script>
+<script src="https://discord.gg/xrw59nuxwN"></script>
 </body>
-
 </html>
